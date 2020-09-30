@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'rules-agreement',
     description: 'Create a permission modifying rules agreement in specific channel',
-    execute(bot, rules_channel_id){
+    execute(bot, rules_channel_id, user_role_id){
         bot.on('ready', () => { // Print rules to rules channel
             console.log('BOT ONLINE');
             const rules_channel = bot.channels.cache.get(rules_channel_id);
