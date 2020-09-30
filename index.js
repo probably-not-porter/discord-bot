@@ -4,10 +4,18 @@
 // JS REQUIREMENTS
 const Discord = require('discord.js');
 const fs = require('fs');
+require('dotenv').config();
 
 // BOT CONFIG
 const bot = new Discord.Client();
-const token = 'NzQwMzM1NDA1MzI4NzYwODMy.XynhEw.-Z9NAg-LHb5UBDNNTkdpz2BMlQ4';
+
+const prefix = process.env.PREFIX;
+const token = process.env.DISCORD_TOKEN;
+
+const filter_words = ["heck", "shoot", "darn"];
+const rules_channel_id = '740382874225737779';
+const admin_channel_id = '742832716923535480';
+const user_role_id = '740383032560844873';
 
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -15,15 +23,6 @@ for (const file of commandFiles){
     const command = require(`./commands/${file}`);
     bot.commands.set(command.name, command);
 }
-
-// SETTINGS
-const prefix = '!';
-const filter_words = ["heck", "shoot", "darn"];
-
-const rules_channel_id = '740382874225737779';
-const admin_channel_id = '742832716923535480';
-
-const user_role_id = '740383032560844873';
 
 // BOT STARTUP SEQUENCE
 bot.on('ready', () => { // Print rules to rules channel
