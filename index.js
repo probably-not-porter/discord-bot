@@ -15,9 +15,14 @@ const token = process.env.DISCORD_TOKEN;
 
 // -------------------- BOT CONFIGURATION -------------------- // 
 const filter_words = ["heck", "shoot", "darn"];
-const rules_channel_id = '740382874225737779';
-const admin_channel_id = '742832716923535480';
-const user_role_id = '740383032560844873';
+// channels
+const rules_channel_id = '740382874225737779'; // channel for ONLY rules agreement
+const admin_channel_id = '742832716923535480'; // admin only channel
+
+// roles
+const user_role_id = '740383032560844873'; // role for basic user
+const mod_role_id; // role for moderator
+const admin_role_id; // role for administrator
 bot.commands = new Discord.Collection();
 
 
